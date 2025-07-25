@@ -1,7 +1,5 @@
 # About
-Pcb diseño altium de placa driver de hasta 5 displays multiplexados.
-Fuente de alimentacion switching offline incluida dentro de placa.
-El firmware se encuentra en https://github.com/federicogramos/deVolt
+Dispositivo de control periódico. Firmware + Pcb diseño altium de varias placas que componen distintas partes. Fuente de alimentacion switching step down diseñada aparte en otro proyecto aun no incluido.
 
 # Schematic
 ![alt text](https://raw.githubusercontent.com/federicogramos/led7SegDriverWithPS/main/otherFiles/sch.jpg)
