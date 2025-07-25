@@ -1,0 +1,55 @@
+
+# 1 "F:\fgr\16gb\libSwPic\libSwPic\timer1\20221129 1236\t1.c"
+
+# 16 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t1_setupUser.h"
+typedef short long type_t1Size;
+
+typedef type_t1Size type_t1DelayConstant;
+
+# 12 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t1_aliases.h"
+enum e_t1
+{
+T1_TIME,
+T1_INTERMITENCIA_OUTPUT,
+T1_CANT
+};
+
+# 24 "F:\fgr\16gb\libSwPic\libSwPic\timer1\20221129 1236\t1.h"
+typedef struct
+{
+type_t1Size prescaler;
+unsigned char loop:1;
+unsigned char flag:1;
+unsigned char pause:1;
+}t_t1;
+
+# 39
+extern t_t1 t1Mem[T1_CANT];
+extern type_t1DelayConstant t1DelayConstant[T1_CANT];
+
+# 91
+void t1Driver(char i);
+
+# 13 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t1_delays.h"
+type_t1DelayConstant t1DelayConstant[T1_CANT]=
+{
+0,
+0
+};
+
+# 17 "F:\fgr\16gb\libSwPic\libSwPic\timer1\20221129 1236\t1.c"
+t_t1 t1Mem[T1_CANT];
+
+# 24
+void t1Driver(char i)
+{
+if(!t1Mem[i].pause && t1Mem[i].prescaler>0)
+{
+t1Mem[i].prescaler--;
+if(t1Mem[i].prescaler==0)
+{
+t1Mem[i].flag=1;
+if(t1Mem[i].loop) t1Mem[i].prescaler=t1DelayConstant[i];
+}
+}
+}

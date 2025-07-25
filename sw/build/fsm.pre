@@ -1,0 +1,1947 @@
+
+# 1 "F:\fgr\16gb\libSwPic\libSwPic\fsm\20220826 1844\fsm.c"
+
+# 19 "C:\Program Files (x86)\HI-TECH Software\PICC\9.70\include\pic16f887.h"
+volatile unsigned char INDF @ 0x000;
+volatile unsigned char TMR0 @ 0x001;
+volatile unsigned char PCL @ 0x002;
+volatile unsigned char STATUS @ 0x003;
+unsigned char FSR @ 0x004;
+volatile unsigned char PORTA @ 0x005;
+volatile unsigned char PORTB @ 0x006;
+volatile unsigned char PORTC @ 0x007;
+
+# 30
+volatile unsigned char PORTE @ 0x009;
+volatile unsigned char PCLATH @ 0x00A;
+volatile unsigned char INTCON @ 0x00B;
+volatile unsigned char PIR1 @ 0x00C;
+volatile unsigned char PIR2 @ 0x00D;
+volatile unsigned char TMR1L @ 0x00E;
+volatile unsigned char TMR1H @ 0x00F;
+unsigned char T1CON @ 0x010;
+volatile unsigned char TMR2 @ 0x011;
+unsigned char T2CON @ 0x012;
+volatile unsigned char SSPBUF @ 0x013;
+volatile unsigned char SSPCON @ 0x014;
+volatile unsigned char CCPR1L @ 0x015;
+volatile unsigned char CCPR1H @ 0x016;
+volatile unsigned char CCP1CON @ 0x017;
+volatile unsigned char RCSTA @ 0x018;
+volatile unsigned char TXREG @ 0x019;
+volatile unsigned char RCREG @ 0x01A;
+volatile unsigned char CCPR2L @ 0x01B;
+volatile unsigned char CCPR2H @ 0x01C;
+volatile unsigned char CCP2CON @ 0x01D;
+volatile unsigned char ADRESH @ 0x01E;
+volatile unsigned char ADCON0 @ 0x01F;
+unsigned char OPTION @ 0x081;
+volatile unsigned char TRISA @ 0x085;
+volatile unsigned char TRISB @ 0x086;
+volatile unsigned char TRISC @ 0x087;
+
+# 60
+volatile unsigned char TRISE @ 0x089;
+unsigned char PIE1 @ 0x08C;
+unsigned char PIE2 @ 0x08D;
+volatile unsigned char PCON @ 0x08E;
+volatile unsigned char OSCCON @ 0x08F;
+unsigned char OSCTUNE @ 0x090;
+volatile unsigned char SSPCON2 @ 0x091;
+unsigned char PR2 @ 0x092;
+unsigned char SSPADD @ 0x093;
+unsigned char SSPMSK @ 0x093;
+volatile unsigned char SSPSTAT @ 0x094;
+unsigned char WPUB @ 0x095;
+unsigned char IOCB @ 0x096;
+unsigned char VRCON @ 0x097;
+volatile unsigned char TXSTA @ 0x098;
+unsigned char SPBRG @ 0x099;
+unsigned char SPBRGH @ 0x09A;
+volatile unsigned char PWM1CON @ 0x09B;
+volatile unsigned char ECCPAS @ 0x09C;
+volatile unsigned char PSTRCON @ 0x09D;
+volatile unsigned char ADRESL @ 0x09E;
+unsigned char ADCON1 @ 0x09F;
+volatile unsigned char WDTCON @ 0x105;
+volatile unsigned char CM1CON0 @ 0x107;
+volatile unsigned char CM2CON0 @ 0x108;
+volatile unsigned char CM2CON1 @ 0x109;
+volatile unsigned char EEDAT @ 0x10C;
+
+volatile unsigned char EEDATA @ 0x10C;
+volatile unsigned char EEADR @ 0x10D;
+
+volatile unsigned char EEADRL @ 0x10D;
+volatile unsigned char EEDATH @ 0x10E;
+volatile unsigned char EEADRH @ 0x10F;
+volatile unsigned char SRCON @ 0x185;
+volatile unsigned char BAUDCTL @ 0x187;
+unsigned char ANSEL @ 0x188;
+unsigned char ANSELH @ 0x189;
+volatile unsigned char EECON1 @ 0x18C;
+volatile unsigned char EECON2 @ 0x18D;
+
+
+
+volatile bit CARRY @ ((unsigned)&STATUS*8)+0;
+volatile bit DC @ ((unsigned)&STATUS*8)+1;
+volatile bit ZERO @ ((unsigned)&STATUS*8)+2;
+volatile bit PD @ ((unsigned)&STATUS*8)+3;
+volatile bit TO @ ((unsigned)&STATUS*8)+4;
+bit RP0 @ ((unsigned)&STATUS*8)+5;
+bit RP1 @ ((unsigned)&STATUS*8)+6;
+bit IRP @ ((unsigned)&STATUS*8)+7;
+
+
+volatile bit RA0 @ ((unsigned)&PORTA*8)+0;
+volatile bit RA1 @ ((unsigned)&PORTA*8)+1;
+volatile bit RA2 @ ((unsigned)&PORTA*8)+2;
+volatile bit RA3 @ ((unsigned)&PORTA*8)+3;
+volatile bit RA4 @ ((unsigned)&PORTA*8)+4;
+volatile bit RA5 @ ((unsigned)&PORTA*8)+5;
+volatile bit RA6 @ ((unsigned)&PORTA*8)+6;
+volatile bit RA7 @ ((unsigned)&PORTA*8)+7;
+
+
+volatile bit RB0 @ ((unsigned)&PORTB*8)+0;
+volatile bit RB1 @ ((unsigned)&PORTB*8)+1;
+volatile bit RB2 @ ((unsigned)&PORTB*8)+2;
+volatile bit RB3 @ ((unsigned)&PORTB*8)+3;
+volatile bit RB4 @ ((unsigned)&PORTB*8)+4;
+volatile bit RB5 @ ((unsigned)&PORTB*8)+5;
+volatile bit RB6 @ ((unsigned)&PORTB*8)+6;
+volatile bit RB7 @ ((unsigned)&PORTB*8)+7;
+
+
+volatile bit RC0 @ ((unsigned)&PORTC*8)+0;
+volatile bit RC1 @ ((unsigned)&PORTC*8)+1;
+volatile bit RC2 @ ((unsigned)&PORTC*8)+2;
+volatile bit RC3 @ ((unsigned)&PORTC*8)+3;
+volatile bit RC4 @ ((unsigned)&PORTC*8)+4;
+volatile bit RC5 @ ((unsigned)&PORTC*8)+5;
+volatile bit RC6 @ ((unsigned)&PORTC*8)+6;
+volatile bit RC7 @ ((unsigned)&PORTC*8)+7;
+
+# 158
+volatile bit RE3 @ ((unsigned)&PORTE*8)+3;
+
+
+volatile bit RBIF @ ((unsigned)&INTCON*8)+0;
+
+volatile bit RABIF @ ((unsigned)&INTCON*8)+0;
+volatile bit INTF @ ((unsigned)&INTCON*8)+1;
+volatile bit T0IF @ ((unsigned)&INTCON*8)+2;
+bit RBIE @ ((unsigned)&INTCON*8)+3;
+
+bit RABIE @ ((unsigned)&INTCON*8)+3;
+bit INTE @ ((unsigned)&INTCON*8)+4;
+bit T0IE @ ((unsigned)&INTCON*8)+5;
+bit PEIE @ ((unsigned)&INTCON*8)+6;
+volatile bit GIE @ ((unsigned)&INTCON*8)+7;
+
+
+volatile bit TMR1IF @ ((unsigned)&PIR1*8)+0;
+volatile bit TMR2IF @ ((unsigned)&PIR1*8)+1;
+volatile bit CCP1IF @ ((unsigned)&PIR1*8)+2;
+volatile bit SSPIF @ ((unsigned)&PIR1*8)+3;
+volatile bit TXIF @ ((unsigned)&PIR1*8)+4;
+volatile bit RCIF @ ((unsigned)&PIR1*8)+5;
+volatile bit ADIF @ ((unsigned)&PIR1*8)+6;
+
+
+volatile bit CCP2IF @ ((unsigned)&PIR2*8)+0;
+volatile bit ULPWUIF @ ((unsigned)&PIR2*8)+2;
+volatile bit BCLIF @ ((unsigned)&PIR2*8)+3;
+volatile bit EEIF @ ((unsigned)&PIR2*8)+4;
+volatile bit C1IF @ ((unsigned)&PIR2*8)+5;
+volatile bit C2IF @ ((unsigned)&PIR2*8)+6;
+volatile bit OSFIF @ ((unsigned)&PIR2*8)+7;
+
+
+bit TMR1ON @ ((unsigned)&T1CON*8)+0;
+bit TMR1CS @ ((unsigned)&T1CON*8)+1;
+bit T1SYNC @ ((unsigned)&T1CON*8)+2;
+bit T1OSCEN @ ((unsigned)&T1CON*8)+3;
+bit T1CKPS0 @ ((unsigned)&T1CON*8)+4;
+bit T1CKPS1 @ ((unsigned)&T1CON*8)+5;
+bit TMR1GE @ ((unsigned)&T1CON*8)+6;
+bit T1GINV @ ((unsigned)&T1CON*8)+7;
+
+
+bit T2CKPS0 @ ((unsigned)&T2CON*8)+0;
+bit T2CKPS1 @ ((unsigned)&T2CON*8)+1;
+bit TMR2ON @ ((unsigned)&T2CON*8)+2;
+bit TOUTPS0 @ ((unsigned)&T2CON*8)+3;
+bit TOUTPS1 @ ((unsigned)&T2CON*8)+4;
+bit TOUTPS2 @ ((unsigned)&T2CON*8)+5;
+bit TOUTPS3 @ ((unsigned)&T2CON*8)+6;
+
+
+bit SSPM0 @ ((unsigned)&SSPCON*8)+0;
+bit SSPM1 @ ((unsigned)&SSPCON*8)+1;
+bit SSPM2 @ ((unsigned)&SSPCON*8)+2;
+bit SSPM3 @ ((unsigned)&SSPCON*8)+3;
+bit CKP @ ((unsigned)&SSPCON*8)+4;
+bit SSPEN @ ((unsigned)&SSPCON*8)+5;
+volatile bit SSPOV @ ((unsigned)&SSPCON*8)+6;
+volatile bit WCOL @ ((unsigned)&SSPCON*8)+7;
+
+
+bit CCP1M0 @ ((unsigned)&CCP1CON*8)+0;
+bit CCP1M1 @ ((unsigned)&CCP1CON*8)+1;
+bit CCP1M2 @ ((unsigned)&CCP1CON*8)+2;
+bit CCP1M3 @ ((unsigned)&CCP1CON*8)+3;
+bit DC1B0 @ ((unsigned)&CCP1CON*8)+4;
+bit DC1B1 @ ((unsigned)&CCP1CON*8)+5;
+bit P1M0 @ ((unsigned)&CCP1CON*8)+6;
+bit P1M1 @ ((unsigned)&CCP1CON*8)+7;
+
+
+volatile bit RX9D @ ((unsigned)&RCSTA*8)+0;
+volatile bit OERR @ ((unsigned)&RCSTA*8)+1;
+volatile bit FERR @ ((unsigned)&RCSTA*8)+2;
+bit ADDEN @ ((unsigned)&RCSTA*8)+3;
+bit CREN @ ((unsigned)&RCSTA*8)+4;
+bit SREN @ ((unsigned)&RCSTA*8)+5;
+bit RX9 @ ((unsigned)&RCSTA*8)+6;
+bit SPEN @ ((unsigned)&RCSTA*8)+7;
+
+
+bit CCP2M0 @ ((unsigned)&CCP2CON*8)+0;
+bit CCP2M1 @ ((unsigned)&CCP2CON*8)+1;
+bit CCP2M2 @ ((unsigned)&CCP2CON*8)+2;
+bit CCP2M3 @ ((unsigned)&CCP2CON*8)+3;
+volatile bit CCP2Y @ ((unsigned)&CCP2CON*8)+4;
+volatile bit CCP2X @ ((unsigned)&CCP2CON*8)+5;
+
+
+bit ADON @ ((unsigned)&ADCON0*8)+0;
+volatile bit GODONE @ ((unsigned)&ADCON0*8)+1;
+bit CHS0 @ ((unsigned)&ADCON0*8)+2;
+bit CHS1 @ ((unsigned)&ADCON0*8)+3;
+bit CHS2 @ ((unsigned)&ADCON0*8)+4;
+bit CHS3 @ ((unsigned)&ADCON0*8)+5;
+bit ADCS0 @ ((unsigned)&ADCON0*8)+6;
+bit ADCS1 @ ((unsigned)&ADCON0*8)+7;
+
+
+bit PS0 @ ((unsigned)&OPTION*8)+0;
+bit PS1 @ ((unsigned)&OPTION*8)+1;
+bit PS2 @ ((unsigned)&OPTION*8)+2;
+bit PSA @ ((unsigned)&OPTION*8)+3;
+bit T0SE @ ((unsigned)&OPTION*8)+4;
+bit T0CS @ ((unsigned)&OPTION*8)+5;
+bit INTEDG @ ((unsigned)&OPTION*8)+6;
+bit RBPU @ ((unsigned)&OPTION*8)+7;
+
+bit RABPU @ ((unsigned)&OPTION*8)+7;
+
+
+bit TRISA0 @ ((unsigned)&TRISA*8)+0;
+bit TRISA1 @ ((unsigned)&TRISA*8)+1;
+bit TRISA2 @ ((unsigned)&TRISA*8)+2;
+bit TRISA3 @ ((unsigned)&TRISA*8)+3;
+bit TRISA4 @ ((unsigned)&TRISA*8)+4;
+bit TRISA5 @ ((unsigned)&TRISA*8)+5;
+bit TRISA6 @ ((unsigned)&TRISA*8)+6;
+bit TRISA7 @ ((unsigned)&TRISA*8)+7;
+
+
+volatile bit TRISB0 @ ((unsigned)&TRISB*8)+0;
+volatile bit TRISB1 @ ((unsigned)&TRISB*8)+1;
+volatile bit TRISB2 @ ((unsigned)&TRISB*8)+2;
+volatile bit TRISB3 @ ((unsigned)&TRISB*8)+3;
+volatile bit TRISB4 @ ((unsigned)&TRISB*8)+4;
+volatile bit TRISB5 @ ((unsigned)&TRISB*8)+5;
+volatile bit TRISB6 @ ((unsigned)&TRISB*8)+6;
+volatile bit TRISB7 @ ((unsigned)&TRISB*8)+7;
+
+
+volatile bit TRISC0 @ ((unsigned)&TRISC*8)+0;
+volatile bit TRISC1 @ ((unsigned)&TRISC*8)+1;
+volatile bit TRISC2 @ ((unsigned)&TRISC*8)+2;
+volatile bit TRISC3 @ ((unsigned)&TRISC*8)+3;
+volatile bit TRISC4 @ ((unsigned)&TRISC*8)+4;
+volatile bit TRISC5 @ ((unsigned)&TRISC*8)+5;
+volatile bit TRISC6 @ ((unsigned)&TRISC*8)+6;
+volatile bit TRISC7 @ ((unsigned)&TRISC*8)+7;
+
+# 317
+volatile bit TRISE3 @ ((unsigned)&TRISE*8)+3;
+
+
+bit TMR1IE @ ((unsigned)&PIE1*8)+0;
+bit TMR2IE @ ((unsigned)&PIE1*8)+1;
+bit CCP1IE @ ((unsigned)&PIE1*8)+2;
+bit SSPIE @ ((unsigned)&PIE1*8)+3;
+bit TXIE @ ((unsigned)&PIE1*8)+4;
+bit RCIE @ ((unsigned)&PIE1*8)+5;
+bit ADIE @ ((unsigned)&PIE1*8)+6;
+
+
+bit CCP2IE @ ((unsigned)&PIE2*8)+0;
+bit ULPWUIE @ ((unsigned)&PIE2*8)+2;
+bit BCLIE @ ((unsigned)&PIE2*8)+3;
+bit EEIE @ ((unsigned)&PIE2*8)+4;
+bit C1IE @ ((unsigned)&PIE2*8)+5;
+bit C2IE @ ((unsigned)&PIE2*8)+6;
+bit OSFIE @ ((unsigned)&PIE2*8)+7;
+
+
+volatile bit BOR @ ((unsigned)&PCON*8)+0;
+volatile bit POR @ ((unsigned)&PCON*8)+1;
+bit SBOREN @ ((unsigned)&PCON*8)+4;
+bit ULPWUE @ ((unsigned)&PCON*8)+5;
+
+
+bit SCS @ ((unsigned)&OSCCON*8)+0;
+volatile bit LTS @ ((unsigned)&OSCCON*8)+1;
+volatile bit HTS @ ((unsigned)&OSCCON*8)+2;
+volatile bit OSTS @ ((unsigned)&OSCCON*8)+3;
+bit IRCF0 @ ((unsigned)&OSCCON*8)+4;
+bit IRCF1 @ ((unsigned)&OSCCON*8)+5;
+bit IRCF2 @ ((unsigned)&OSCCON*8)+6;
+
+
+bit TUN0 @ ((unsigned)&OSCTUNE*8)+0;
+bit TUN1 @ ((unsigned)&OSCTUNE*8)+1;
+bit TUN2 @ ((unsigned)&OSCTUNE*8)+2;
+bit TUN3 @ ((unsigned)&OSCTUNE*8)+3;
+bit TUN4 @ ((unsigned)&OSCTUNE*8)+4;
+
+
+bit SEN @ ((unsigned)&SSPCON2*8)+0;
+volatile bit RSEN @ ((unsigned)&SSPCON2*8)+1;
+volatile bit PEN @ ((unsigned)&SSPCON2*8)+2;
+volatile bit RCEN @ ((unsigned)&SSPCON2*8)+3;
+volatile bit ACKEN @ ((unsigned)&SSPCON2*8)+4;
+volatile bit ACKDT @ ((unsigned)&SSPCON2*8)+5;
+volatile bit ACKSTAT @ ((unsigned)&SSPCON2*8)+6;
+bit GCEN @ ((unsigned)&SSPCON2*8)+7;
+
+
+volatile bit BF @ ((unsigned)&SSPSTAT*8)+0;
+volatile bit UA @ ((unsigned)&SSPSTAT*8)+1;
+volatile bit RW @ ((unsigned)&SSPSTAT*8)+2;
+volatile bit START @ ((unsigned)&SSPSTAT*8)+3;
+volatile bit STOP @ ((unsigned)&SSPSTAT*8)+4;
+volatile bit DA @ ((unsigned)&SSPSTAT*8)+5;
+bit CKE @ ((unsigned)&SSPSTAT*8)+6;
+bit SMP @ ((unsigned)&SSPSTAT*8)+7;
+
+
+bit WPUB0 @ ((unsigned)&WPUB*8)+0;
+bit WPUB1 @ ((unsigned)&WPUB*8)+1;
+bit WPUB2 @ ((unsigned)&WPUB*8)+2;
+bit WPUB3 @ ((unsigned)&WPUB*8)+3;
+bit WPUB4 @ ((unsigned)&WPUB*8)+4;
+bit WPUB5 @ ((unsigned)&WPUB*8)+5;
+bit WPUB6 @ ((unsigned)&WPUB*8)+6;
+bit WPUB7 @ ((unsigned)&WPUB*8)+7;
+
+
+bit IOCB0 @ ((unsigned)&IOCB*8)+0;
+bit IOCB1 @ ((unsigned)&IOCB*8)+1;
+bit IOCB2 @ ((unsigned)&IOCB*8)+2;
+bit IOCB3 @ ((unsigned)&IOCB*8)+3;
+bit IOCB4 @ ((unsigned)&IOCB*8)+4;
+bit IOCB5 @ ((unsigned)&IOCB*8)+5;
+bit IOCB6 @ ((unsigned)&IOCB*8)+6;
+bit IOCB7 @ ((unsigned)&IOCB*8)+7;
+
+
+bit VR0 @ ((unsigned)&VRCON*8)+0;
+bit VR1 @ ((unsigned)&VRCON*8)+1;
+bit VR2 @ ((unsigned)&VRCON*8)+2;
+bit VR3 @ ((unsigned)&VRCON*8)+3;
+bit VRSS @ ((unsigned)&VRCON*8)+4;
+bit VRR @ ((unsigned)&VRCON*8)+5;
+bit VROE @ ((unsigned)&VRCON*8)+6;
+bit VREN @ ((unsigned)&VRCON*8)+7;
+
+
+volatile bit TX9D @ ((unsigned)&TXSTA*8)+0;
+volatile bit TRMT @ ((unsigned)&TXSTA*8)+1;
+bit BRGH @ ((unsigned)&TXSTA*8)+2;
+bit SENDB @ ((unsigned)&TXSTA*8)+3;
+bit SYNC @ ((unsigned)&TXSTA*8)+4;
+bit TXEN @ ((unsigned)&TXSTA*8)+5;
+bit TX9 @ ((unsigned)&TXSTA*8)+6;
+bit CSRC @ ((unsigned)&TXSTA*8)+7;
+
+
+bit BRG0 @ ((unsigned)&SPBRG*8)+0;
+bit BRG1 @ ((unsigned)&SPBRG*8)+1;
+bit BRG2 @ ((unsigned)&SPBRG*8)+2;
+bit BRG3 @ ((unsigned)&SPBRG*8)+3;
+bit BRG4 @ ((unsigned)&SPBRG*8)+4;
+bit BRG5 @ ((unsigned)&SPBRG*8)+5;
+bit BRG6 @ ((unsigned)&SPBRG*8)+6;
+bit BRG7 @ ((unsigned)&SPBRG*8)+7;
+
+
+bit BRG8 @ ((unsigned)&SPBRGH*8)+0;
+bit BRG9 @ ((unsigned)&SPBRGH*8)+1;
+bit BRG10 @ ((unsigned)&SPBRGH*8)+2;
+bit BRG11 @ ((unsigned)&SPBRGH*8)+3;
+bit BRG12 @ ((unsigned)&SPBRGH*8)+4;
+bit BRG13 @ ((unsigned)&SPBRGH*8)+5;
+bit BRG14 @ ((unsigned)&SPBRGH*8)+6;
+bit BRG15 @ ((unsigned)&SPBRGH*8)+7;
+
+
+volatile bit PDC0 @ ((unsigned)&PWM1CON*8)+0;
+volatile bit PDC1 @ ((unsigned)&PWM1CON*8)+1;
+volatile bit PDC2 @ ((unsigned)&PWM1CON*8)+2;
+volatile bit PDC3 @ ((unsigned)&PWM1CON*8)+3;
+volatile bit PDC4 @ ((unsigned)&PWM1CON*8)+4;
+volatile bit PDC5 @ ((unsigned)&PWM1CON*8)+5;
+volatile bit PDC6 @ ((unsigned)&PWM1CON*8)+6;
+volatile bit PRSEN @ ((unsigned)&PWM1CON*8)+7;
+
+
+bit PSSBD0 @ ((unsigned)&ECCPAS*8)+0;
+bit PSSBD1 @ ((unsigned)&ECCPAS*8)+1;
+bit PSSAC0 @ ((unsigned)&ECCPAS*8)+2;
+bit PSSAC1 @ ((unsigned)&ECCPAS*8)+3;
+bit ECCPAS0 @ ((unsigned)&ECCPAS*8)+4;
+bit ECCPAS1 @ ((unsigned)&ECCPAS*8)+5;
+bit ECCPAS2 @ ((unsigned)&ECCPAS*8)+6;
+volatile bit ECCPASE @ ((unsigned)&ECCPAS*8)+7;
+
+
+volatile bit STRA @ ((unsigned)&PSTRCON*8)+0;
+volatile bit STRB @ ((unsigned)&PSTRCON*8)+1;
+volatile bit STRC @ ((unsigned)&PSTRCON*8)+2;
+volatile bit STRD @ ((unsigned)&PSTRCON*8)+3;
+volatile bit STRSYNC @ ((unsigned)&PSTRCON*8)+4;
+
+
+bit VCFG0 @ ((unsigned)&ADCON1*8)+4;
+bit VCFG1 @ ((unsigned)&ADCON1*8)+5;
+bit ADFM @ ((unsigned)&ADCON1*8)+7;
+
+
+bit SWDTEN @ ((unsigned)&WDTCON*8)+0;
+bit WDTPS0 @ ((unsigned)&WDTCON*8)+1;
+bit WDTPS1 @ ((unsigned)&WDTCON*8)+2;
+bit WDTPS2 @ ((unsigned)&WDTCON*8)+3;
+bit WDTPS3 @ ((unsigned)&WDTCON*8)+4;
+
+
+bit C1CH0 @ ((unsigned)&CM1CON0*8)+0;
+bit C1CH1 @ ((unsigned)&CM1CON0*8)+1;
+bit C1R @ ((unsigned)&CM1CON0*8)+2;
+bit C1POL @ ((unsigned)&CM1CON0*8)+4;
+bit C1OE @ ((unsigned)&CM1CON0*8)+5;
+volatile bit C1OUT @ ((unsigned)&CM1CON0*8)+6;
+bit C1ON @ ((unsigned)&CM1CON0*8)+7;
+
+
+bit C2CH0 @ ((unsigned)&CM2CON0*8)+0;
+bit C2CH1 @ ((unsigned)&CM2CON0*8)+1;
+bit C2R @ ((unsigned)&CM2CON0*8)+2;
+bit C2POL @ ((unsigned)&CM2CON0*8)+4;
+bit C2OE @ ((unsigned)&CM2CON0*8)+5;
+volatile bit C2OUT @ ((unsigned)&CM2CON0*8)+6;
+bit C2ON @ ((unsigned)&CM2CON0*8)+7;
+
+
+bit C2SYNC @ ((unsigned)&CM2CON1*8)+0;
+bit T1GSS @ ((unsigned)&CM2CON1*8)+1;
+bit C2RSEL @ ((unsigned)&CM2CON1*8)+4;
+bit C1RSEL @ ((unsigned)&CM2CON1*8)+5;
+volatile bit MC2OUT @ ((unsigned)&CM2CON1*8)+6;
+volatile bit MC1OUT @ ((unsigned)&CM2CON1*8)+7;
+
+
+bit FVREN @ ((unsigned)&SRCON*8)+0;
+volatile bit PULSR @ ((unsigned)&SRCON*8)+2;
+volatile bit PULSS @ ((unsigned)&SRCON*8)+3;
+bit C2REN @ ((unsigned)&SRCON*8)+4;
+bit C1SEN @ ((unsigned)&SRCON*8)+5;
+bit SR0 @ ((unsigned)&SRCON*8)+6;
+bit SR1 @ ((unsigned)&SRCON*8)+7;
+
+
+volatile bit ABDEN @ ((unsigned)&BAUDCTL*8)+0;
+volatile bit WUE @ ((unsigned)&BAUDCTL*8)+1;
+bit BRG16 @ ((unsigned)&BAUDCTL*8)+3;
+volatile bit SCKP @ ((unsigned)&BAUDCTL*8)+4;
+volatile bit RCIDL @ ((unsigned)&BAUDCTL*8)+6;
+volatile bit ABDOVF @ ((unsigned)&BAUDCTL*8)+7;
+
+
+bit ANS0 @ ((unsigned)&ANSEL*8)+0;
+bit ANS1 @ ((unsigned)&ANSEL*8)+1;
+bit ANS2 @ ((unsigned)&ANSEL*8)+2;
+bit ANS3 @ ((unsigned)&ANSEL*8)+3;
+bit ANS4 @ ((unsigned)&ANSEL*8)+4;
+
+# 534
+bit ANS8 @ ((unsigned)&ANSELH*8)+0;
+bit ANS9 @ ((unsigned)&ANSELH*8)+1;
+bit ANS10 @ ((unsigned)&ANSELH*8)+2;
+bit ANS11 @ ((unsigned)&ANSELH*8)+3;
+bit ANS12 @ ((unsigned)&ANSELH*8)+4;
+bit ANS13 @ ((unsigned)&ANSELH*8)+5;
+
+
+volatile bit RD @ ((unsigned)&EECON1*8)+0;
+volatile bit WR @ ((unsigned)&EECON1*8)+1;
+volatile bit WREN @ ((unsigned)&EECON1*8)+2;
+volatile bit WRERR @ ((unsigned)&EECON1*8)+3;
+volatile bit EEPGD @ ((unsigned)&EECON1*8)+7;
+
+# 392 "C:\Program Files (x86)\HI-TECH Software\PICC\9.70\include\pic.h"
+extern unsigned int flash_read(unsigned short addr);
+
+# 41 "C:\Program Files (x86)\HI-TECH Software\PICC\9.70\include\eeprom_routines.h"
+extern void eeprom_write(unsigned char addr, unsigned char value);
+extern unsigned char eeprom_read(unsigned char addr);
+
+
+# 465 "C:\Program Files (x86)\HI-TECH Software\PICC\9.70\include\pic.h"
+#pragma inline(_delay)
+extern void _delay(unsigned long);
+
+# 22 "F:\fgr\16gb\libSwPic\libSwPic\fsm\20220826 1844\fsm.h"
+void fsmParser(void);
+
+# 28
+extern char estadoFsm;
+
+# 34
+typedef const struct t_transition
+{
+char event;
+void (*action)(void);
+char nextState;
+}t_fsmState;
+
+# 22 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\fsm_table.h"
+enum e_events
+{
+EV_TESTDISPLAY_TIMEOUT,
+EV_T1_TIME_TIMEOUT,
+EV_MENU_RETURN_TIMEOUT,
+
+EV_KM,
+EV_KM_FN_LOCKED,
+EV_KM_FP_LOCKED,
+EV_KM_TON_OFF_EXIT,
+
+
+
+EV_K_SET,
+
+EV_K_ACCEPT,
+EV_K_ACCEPT_FP,
+EV_K_ACCEPT_FN,
+
+EV_IN_FP,
+EV_IN_FN,
+
+EV_IN2_FP,
+EV_IN2_FN,
+
+EV_TABLE_END
+};
+
+# 55
+void a_doNothing(void);
+void a_testDisplaySetup(void);
+void a_initializeDevice(void);
+
+void a_temporizar(void);
+void a_inputActionFp(void);
+void a_inputActionFn(void);
+void a_input2ActionFp(void);
+void a_input2ActionFn(void);
+void a_showTimerIdOn(void);
+void a_showTimerIdOff(void);
+void a_showHyphensOn(void);
+void a_showHyphensOff(void);
+
+void a_m0_return(void);
+
+void a_m0_first(void);
+void a_m0_first_set(void);
+void a_m0_first_inc(void);
+void a_m0_first_save(void);
+
+void a_m0_input(void);
+void a_m0_input_set(void);
+void a_m0_input_inc(void);
+void a_m0_input_save(void);
+
+void a_m0_nMem(void);
+void a_m0_nMem_set(void);
+void a_m0_nMem_inc(void);
+void a_m0_nMem_dec(void);
+void a_m0_nMem_save(void);
+
+void a_m0_tOnOff_entrance(void);
+void a_m0_tOnOff_showString(void);
+void a_m0_tOnOff_showString_next(void);
+void a_m0_tOnOff_set(void);
+void a_m0_tOnOff_inc(void);
+void a_m0_tOnOff_save(void);
+
+void a_showTime(void);
+
+# 109
+enum fsm_table_ix
+{
+S__TESTDISPLAY_SETUP,
+S__TESTDISPLAY,
+
+S__IDLE,
+S__RST,
+
+S__M0__FIRST,
+S__M0__FIRST__SET,
+
+S__M0__INPUT,
+S__M0__INPUT__SET,
+
+S__M0__NMEM,
+S__M0__NMEM__SET,
+
+S__M0__TON_OFF,
+S__M0__TON_OFF__SET_HH_0,
+S__M0__TON_OFF__SET_HH_1,
+S__M0__TON_OFF__SET_MM_0,
+S__M0__TON_OFF__SET_MM_1,
+S__M0__TON_OFF__SET_SS_0,
+S__M0__TON_OFF__SET_SS_1
+};
+
+# 142
+t_fsmState s_testDisplaySetup[]=
+{
+{EV_TABLE_END, &a_testDisplaySetup, S__TESTDISPLAY}
+};
+
+
+
+t_fsmState s_testDisplay[]=
+{
+{EV_TESTDISPLAY_TIMEOUT, &a_initializeDevice, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__TESTDISPLAY}
+};
+
+
+
+t_fsmState s_idle[]=
+{
+{EV_KM, &a_m0_first, S__M0__FIRST},
+{EV_KM_FP_LOCKED, &a_showHyphensOff, S__IDLE},
+{EV_KM_FN_LOCKED, &a_showHyphensOn, S__IDLE},
+{EV_T1_TIME_TIMEOUT, &a_temporizar, S__IDLE},
+{EV_K_ACCEPT_FP, &a_showTimerIdOff, S__IDLE},
+{EV_K_ACCEPT_FN, &a_showTimerIdOn, S__IDLE},
+{EV_IN_FP, &a_inputActionFp, S__IDLE},
+{EV_IN_FN, &a_inputActionFn, S__IDLE},
+{EV_IN2_FN, &a_input2ActionFn, S__RST},
+{EV_TABLE_END, &a_showTime, S__IDLE}
+};
+
+
+
+t_fsmState s_rst[]=
+{
+{EV_IN2_FP, &a_input2ActionFp, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__RST}
+};
+
+
+
+
+t_fsmState s_m0_first[]=
+{
+{EV_KM, &a_m0_input, S__M0__INPUT},
+{EV_K_ACCEPT, &a_m0_first_set, S__M0__FIRST__SET},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__FIRST}
+};
+
+# 195
+t_fsmState s_m0_first_set[]=
+{
+{EV_K_SET, &a_m0_first_inc, S__M0__FIRST__SET},
+{EV_KM, &a_m0_first_inc, S__M0__FIRST__SET},
+{EV_K_ACCEPT, &a_m0_first_save, S__M0__FIRST},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__FIRST__SET}
+};
+
+# 208
+t_fsmState s_m0_input[]=
+{
+{EV_KM, &a_m0_nMem, S__M0__NMEM},
+{EV_K_ACCEPT, &a_m0_input_set, S__M0__INPUT__SET},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__INPUT}
+};
+
+# 221
+t_fsmState s_m0_input_set[]=
+{
+{EV_K_SET, &a_m0_input_inc, S__M0__INPUT__SET},
+{EV_KM, &a_m0_input_inc, S__M0__INPUT__SET},
+{EV_K_ACCEPT, &a_m0_input_save, S__M0__INPUT},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__INPUT__SET}
+};
+
+
+
+
+t_fsmState s_m0_nMem[]=
+{
+{EV_KM, &a_m0_tOnOff_entrance, S__M0__TON_OFF},
+{EV_K_ACCEPT, &a_m0_nMem_set, S__M0__NMEM__SET},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__NMEM}
+};
+
+# 245
+t_fsmState s_m0_nMem_set[]=
+{
+{EV_K_SET, &a_m0_nMem_inc, S__M0__NMEM__SET},
+{EV_KM, &a_m0_nMem_dec, S__M0__NMEM__SET},
+{EV_K_ACCEPT, &a_m0_nMem_save, S__M0__NMEM},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__NMEM__SET}
+};
+
+
+
+t_fsmState s_m0_tonToff[]=
+{
+{EV_KM, &a_m0_tOnOff_showString_next, S__M0__TON_OFF},
+{EV_KM_TON_OFF_EXIT, &a_m0_first, S__M0__FIRST},
+{EV_K_ACCEPT, &a_m0_tOnOff_set, S__M0__TON_OFF__SET_HH_0},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__TON_OFF}
+};
+
+
+
+t_fsmState s_m0_tonToff_setHoras0[]=
+{
+{EV_KM, &a_m0_tOnOff_set, S__M0__TON_OFF__SET_HH_1},
+{EV_K_SET, &a_m0_tOnOff_inc, S__M0__TON_OFF__SET_HH_0},
+{EV_K_ACCEPT, &a_m0_tOnOff_save, S__M0__TON_OFF},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__TON_OFF__SET_HH_0}
+};
+
+
+
+t_fsmState s_m0_tonToff_setHoras1[]=
+{
+{EV_KM, &a_m0_tOnOff_set, S__M0__TON_OFF__SET_MM_0},
+{EV_K_SET, &a_m0_tOnOff_inc, S__M0__TON_OFF__SET_HH_1},
+{EV_K_ACCEPT, &a_m0_tOnOff_save, S__M0__TON_OFF},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__TON_OFF__SET_HH_1}
+};
+
+
+
+t_fsmState s_m0_tonToff_setMinutos0[]=
+{
+{EV_KM, &a_m0_tOnOff_set, S__M0__TON_OFF__SET_MM_1},
+{EV_K_SET, &a_m0_tOnOff_inc, S__M0__TON_OFF__SET_MM_0},
+{EV_K_ACCEPT, &a_m0_tOnOff_save, S__M0__TON_OFF},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__TON_OFF__SET_MM_0}
+};
+
+
+
+t_fsmState s_m0_tonToff_setMinutos1[]=
+{
+{EV_KM, &a_m0_tOnOff_set, S__M0__TON_OFF__SET_SS_0},
+{EV_K_SET, &a_m0_tOnOff_inc, S__M0__TON_OFF__SET_MM_1},
+{EV_K_ACCEPT, &a_m0_tOnOff_save, S__M0__TON_OFF},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__TON_OFF__SET_MM_1}
+};
+
+
+
+t_fsmState s_m0_tonToff_setSegundos0[]=
+{
+{EV_KM, &a_m0_tOnOff_set, S__M0__TON_OFF__SET_SS_1},
+{EV_K_SET, &a_m0_tOnOff_inc, S__M0__TON_OFF__SET_SS_0},
+{EV_K_ACCEPT, &a_m0_tOnOff_save, S__M0__TON_OFF},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__TON_OFF__SET_SS_0}
+};
+
+
+
+t_fsmState s_m0_tonToff_setSegundos1[]=
+{
+{EV_KM, &a_m0_tOnOff_set, S__M0__TON_OFF__SET_HH_0},
+{EV_K_SET, &a_m0_tOnOff_inc, S__M0__TON_OFF__SET_SS_1},
+{EV_K_ACCEPT, &a_m0_tOnOff_save, S__M0__TON_OFF},
+{EV_MENU_RETURN_TIMEOUT, &a_m0_return, S__IDLE},
+{EV_TABLE_END, &a_doNothing, S__M0__TON_OFF__SET_SS_1}
+};
+
+# 337
+t_fsmState *const fsmStateTable[]=
+{
+s_testDisplaySetup,
+s_testDisplay,
+
+s_idle,
+s_rst,
+
+s_m0_first,
+s_m0_first_set,
+s_m0_input,
+s_m0_input_set,
+s_m0_nMem,
+s_m0_nMem_set,
+
+s_m0_tonToff,
+s_m0_tonToff_setHoras0,
+s_m0_tonToff_setHoras1,
+s_m0_tonToff_setMinutos0,
+s_m0_tonToff_setMinutos1,
+s_m0_tonToff_setSegundos0,
+s_m0_tonToff_setSegundos1
+};
+
+# 58 "F:\fgr\16gb\libSwPic\libSwPic\fsm\20220826 1844\fsm.h"
+char fsmGetEvent(void);
+
+# 12 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t0_setupUser.h"
+typedef unsigned char type_t0Size;
+typedef const type_t0Size type_t0DelayConstant;
+
+# 12 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t0_aliases.h"
+enum e_t0
+{
+T0_TESTDISPLAY,
+T0_MENU_RETURN,
+T0_PULSADO_LARGO_HOLD,
+T0_PULSADO_LARGO_SILENT,
+T0_D7SM_SCROLL,
+T0_CANT
+};
+
+# 28 "F:\fgr\16gb\libSwPic\libSwPic\timer0\20220922 2300\t0.h"
+typedef struct
+{
+type_t0Size prescaler;
+unsigned char loop:1;
+unsigned char flag:1;
+unsigned char pause:1;
+}t_t0;
+
+# 40
+extern t_t0 t0Mem[T0_CANT];
+extern type_t0DelayConstant t0DelayConstant[T0_CANT];
+
+# 83
+void t0Driver(char i);
+
+# 16 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t1_setupUser.h"
+typedef short long type_t1Size;
+
+typedef type_t1Size type_t1DelayConstant;
+
+# 12 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t1_aliases.h"
+enum e_t1
+{
+T1_TIME,
+T1_INTERMITENCIA_OUTPUT,
+T1_CANT
+};
+
+# 24 "F:\fgr\16gb\libSwPic\libSwPic\timer1\20221129 1236\t1.h"
+typedef struct
+{
+type_t1Size prescaler;
+unsigned char loop:1;
+unsigned char flag:1;
+unsigned char pause:1;
+}t_t1;
+
+# 39
+extern t_t1 t1Mem[T1_CANT];
+extern type_t1DelayConstant t1DelayConstant[T1_CANT];
+
+# 91
+void t1Driver(char i);
+
+# 20 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\kPin_aliases.h"
+enum e_kPinAlias
+{
+P0_MENU,
+P1_SET,
+P2_ACCEPT,
+IN1_FORCE,
+IN2_RST,
+PULS_PIN_CANT
+};
+
+# 24 "F:\fgr\16gb\libSwPic\libSwPic\keyPin\20240613 1311\kPin.h"
+typedef struct
+{
+unsigned char kId:5;
+unsigned char flag:1;
+unsigned char flanco:1;
+}t_kEvent;
+
+typedef struct
+{
+unsigned char state:1;
+unsigned char prevState:1;
+unsigned char timer;
+}t_kPin;
+
+# 25 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\kPin_pindef.h"
+volatile bit KEY_0 @ ((unsigned)&PORTA*8)+0;
+volatile bit KEY_1 @ ((unsigned)&PORTA*8)+2;
+volatile bit KEY_2 @ ((unsigned)&PORTE*8)+3;
+volatile bit KEY_3 @ ((unsigned)&PORTB*8)+0;
+volatile bit KEY_4 @ ((unsigned)&PORTB*8)+2;
+
+# 43
+t_kPin kPin[PULS_PIN_CANT]=
+{
+{1,1,0},
+{1,1,0},
+{1,1,0},
+{1,1,0},
+{1,1,0}
+};
+
+# 47 "F:\fgr\16gb\libSwPic\libSwPic\keyPin\20240613 1311\kPin.h"
+enum e_flanco {FLANCO_N,FLANCO_P};
+
+# 53
+extern t_kEvent kPinBuffer;
+
+# 69
+void kPin_driverDc(char pi, char kCurrLogState);
+void kPin_driverAcFn(char pi, char flanco, char kCurrLogState);
+void kPin_driverAcFp(char pi, char flanco, char kCurrLogState);
+
+# 16 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\tmp_11.h"
+enum e_text_mainMenu_ix
+{
+TEXT__M0__FIRST,
+TEXT__M0__INPUT,
+TEXT__M0__NMEM,
+
+
+TEXT__M0__CANT
+};
+
+# 30
+const char *menu_text_main[]=
+{
+"FIRSt",
+"FUNCION ENtRAdA",
+"CANtIdAd tIEMPOS",
+
+
+};
+
+# 57
+enum e_m0_input
+{
+M0_INPUT_NADA,
+M0_INPUT_PAUSE_ON,
+M0_INPUT_PAUSE_OFF,
+M0_INPUT_FUERZA,
+M0_INPUT_DISABLE,
+M0_INPUT_CANT
+};
+
+# 74
+typedef struct
+{
+unsigned char flag_showTimerId:1;
+
+unsigned char flag_showHyphens:1;
+
+
+unsigned char flag_locked:1;
+unsigned char flag_inputSettingLedBlink:1;
+
+unsigned char flag_outForce:1;
+
+unsigned char flag_outForceVal:1;
+unsigned char flag_showTimeBlink:1;
+
+
+
+
+unsigned char mem_input:3;
+
+unsigned char mem_visor_parpadeo:1;
+unsigned char mem_first:1;
+
+unsigned char mem_cantMemorias;
+
+
+char mainMenuState;
+
+char menuCharAuxiliar;
+
+short long menuShortLongAuxiliar;
+
+
+char configSetting;
+
+char p2eepromAddr;
+
+
+char str[4];
+}t_temporizador;
+
+
+
+
+extern t_temporizador tmp_11;
+extern char bitTitila;
+
+# 125
+void tmp_11_test_display(void);
+void tmp_11_init(void);
+void tmp_11_driver(void);
+void tmp_11_action(char new_event);
+char tmp_11_get_event(void);
+short long delay_constant_hhmmss(char hh,char mm,char ss);
+void returnToIdle(void);
+void ucharToStr(unsigned char num,char *str,char strLen);
+
+# 185 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\system.h"
+void systemInit(void);
+
+# 21 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\fsm_events.h"
+char fsmGetEvent(void)
+{
+char event=EV_TABLE_END;
+
+
+switch(estadoFsm)
+{
+case S__TESTDISPLAY_SETUP: break;
+
+
+
+case S__TESTDISPLAY:
+if((t0Mem[T0_TESTDISPLAY].flag?!(t0Mem[T0_TESTDISPLAY].flag=0):0)) event = EV_TESTDISPLAY_TIMEOUT;
+break;
+
+case S__IDLE:
+if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==IN1_FORCE?!(kPinBuffer.flag=0):0)) event = EV_IN_FN;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_P && kPinBuffer.kId==IN1_FORCE?!(kPinBuffer.flag=0):0)) event = EV_IN_FP;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0))
+{
+if(tmp_11.flag_locked) event = EV_KM_FN_LOCKED;
+else event = EV_KM;
+}
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_P && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0))
+{
+if(tmp_11.flag_locked) event = EV_KM_FP_LOCKED;
+}
+else if((t1Mem[T1_TIME].flag?!(t1Mem[T1_TIME].flag=0):0)) event = EV_T1_TIME_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT_FN;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_P && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT_FP;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==IN2_RST?!(kPinBuffer.flag=0):0)) event = EV_IN2_FN;
+break;
+
+case S__RST:
+if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_P && kPinBuffer.kId==IN2_RST?!(kPinBuffer.flag=0):0)) event = EV_IN2_FP;
+break;
+
+case S__M0__FIRST:
+if((t0Mem[T0_MENU_RETURN].flag?!(t0Mem[T0_MENU_RETURN].flag=0):0)) event = EV_MENU_RETURN_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0)) event = EV_KM;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT;
+break;
+
+case S__M0__FIRST__SET:
+if((t0Mem[T0_MENU_RETURN].flag?!(t0Mem[T0_MENU_RETURN].flag=0):0)) event = EV_MENU_RETURN_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P1_SET?!(kPinBuffer.flag=0):0)) event = EV_K_SET;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0)) event = EV_KM;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT;
+break;
+
+case S__M0__INPUT:
+if((t0Mem[T0_MENU_RETURN].flag?!(t0Mem[T0_MENU_RETURN].flag=0):0)) event = EV_MENU_RETURN_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0)) event = EV_KM;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT;
+break;
+
+case S__M0__INPUT__SET:
+if((t0Mem[T0_MENU_RETURN].flag?!(t0Mem[T0_MENU_RETURN].flag=0):0)) event = EV_MENU_RETURN_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P1_SET?!(kPinBuffer.flag=0):0)) event = EV_K_SET;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0)) event = EV_KM;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT;
+break;
+
+case S__M0__NMEM:
+if((t0Mem[T0_MENU_RETURN].flag?!(t0Mem[T0_MENU_RETURN].flag=0):0)) event = EV_MENU_RETURN_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0)) event = EV_KM;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT;
+break;
+
+case S__M0__NMEM__SET:
+if((t0Mem[T0_MENU_RETURN].flag?!(t0Mem[T0_MENU_RETURN].flag=0):0)) event = EV_MENU_RETURN_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P1_SET?!(kPinBuffer.flag=0):0)) event = EV_K_SET;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0)) event = EV_KM;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT;
+break;
+
+case S__M0__TON_OFF:
+if((t0Mem[T0_MENU_RETURN].flag?!(t0Mem[T0_MENU_RETURN].flag=0):0)) event = EV_MENU_RETURN_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0))
+{
+if(tmp_11.mainMenuState==tmp_11.mem_cantMemorias-1)
+event = EV_KM_TON_OFF_EXIT;
+else event = EV_KM;
+}
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT;
+break;
+
+case S__M0__TON_OFF__SET_HH_0:
+case S__M0__TON_OFF__SET_HH_1:
+case S__M0__TON_OFF__SET_MM_0:
+case S__M0__TON_OFF__SET_MM_1:
+case S__M0__TON_OFF__SET_SS_0:
+case S__M0__TON_OFF__SET_SS_1:
+if((t0Mem[T0_MENU_RETURN].flag?!(t0Mem[T0_MENU_RETURN].flag=0):0)) event = EV_MENU_RETURN_TIMEOUT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P0_MENU?!(kPinBuffer.flag=0):0)) event = EV_KM;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P2_ACCEPT?!(kPinBuffer.flag=0):0)) event = EV_K_ACCEPT;
+else if((kPinBuffer.flag && kPinBuffer.flanco==FLANCO_N && kPinBuffer.kId==P1_SET?!(kPinBuffer.flag=0):0)) event = EV_K_SET;
+break;
+}
+
+return event;
+}
+
+# 40 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\d7sm_setupUser.h"
+typedef struct
+{
+char *str;
+char strOffs;
+char strLen;
+char mux_state;
+char d0_titila:1;
+char d1_titila:1;
+char d2_titila:1;
+char d3_titila:1;
+char d0_dp:1;
+char d1_dp:1;
+char d2_dp:1;
+char d3_dp:1;
+}t_disp7segMux;
+
+# 328 "F:\fgr\16gb\libSwPic\libSwPic\disp7segMux\20220922\d7sm.h"
+typedef struct
+{
+
+
+
+
+char *str;
+
+
+
+char strOffs;
+
+
+
+
+char strLen;
+
+char mux_state;
+
+
+
+char d0_titila:1; char d1_titila:1; char d2_titila:1; char d3_titila:1;  
+char d0_dp:1; char d1_dp:1; char d2_dp:1; char d3_dp:1;  
+}t_d7sm;
+
+# 357
+extern t_d7sm disp;
+extern char d7sm_buffer[];
+
+# 416
+void d7sm_char2pins(char c);
+void d7sm_scroll_constString(const char *string);
+void d7sm_puts_scroll(char *string);
+void d7sm_set_88xx(char nTitila, unsigned char number, const char *unitText);
+void d7sm_set_number(char nTitila, unsigned char number);
+void d7sm_printf(char *fmt, ...);
+
+# 20 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\eeprom16f_memAddresses.h"
+enum e_eeprom
+{
+EEADDR__00_00__INPUT,
+EEADDR__01_00__VISOR_PARPADEO = EEADDR__00_00__INPUT+sizeof(char),
+EEADDR__02_00__NMEM = EEADDR__01_00__VISOR_PARPADEO+sizeof(char),
+EEADDR__03_00__INTERMITENCIA_OUTPUT = EEADDR__02_00__NMEM+sizeof(char),
+EEADDR__04_00__FIRST = EEADDR__03_00__INTERMITENCIA_OUTPUT+sizeof(char),
+
+EEADDR__16_00__TON_OFF=16,
+
+};
+
+# 185 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\system.h"
+void systemInit(void);
+
+# 39 "F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\fsm_actions.h"
+void a_doNothing(void) {}
+
+
+
+
+void a_testDisplaySetup(void)
+{
+{ t0Mem[T0_TESTDISPLAY].flag=0; t0Mem[T0_TESTDISPLAY].prescaler=t0DelayConstant[T0_TESTDISPLAY]; t0Mem[T0_TESTDISPLAY].pause=0; };
+}
+
+# 55
+void a_initializeDevice(void)
+{
+tmp_11.flag_locked=RB6;
+RB5=!tmp_11.flag_locked;
+
+
+{ tmp_11.mem_input=eeprom_read(EEADDR__00_00__INPUT); };
+{ tmp_11.mem_visor_parpadeo=eeprom_read(EEADDR__01_00__VISOR_PARPADEO); };
+{ tmp_11.mem_cantMemorias=eeprom_read(EEADDR__02_00__NMEM); };
+{ tmp_11.mem_first=eeprom_read(EEADDR__04_00__FIRST); };
+
+if(!tmp_11.mem_first) tmp_11.p2eepromAddr += sizeof(short long);
+
+
+(t1Mem[T1_TIME].flag=1);
+}
+
+# 80
+void a_temporizar(void)
+{
+{ t1DelayConstant[T1_TIME]=0x0000L; t1DelayConstant[T1_TIME]|=(long)eeprom_read(tmp_11.p2eepromAddr+0)<<(8*2); t1DelayConstant[T1_TIME]|=(long)eeprom_read(tmp_11.p2eepromAddr+1)<<(8*1); t1DelayConstant[T1_TIME]|=(long)eeprom_read(tmp_11.p2eepromAddr+2)<<(8*0); };
+
+
+if(tmp_11.mem_first)
+
+{
+tmp_11.p2eepromAddr+=sizeof(short long);
+
+if( tmp_11.p2eepromAddr==
+EEADDR__16_00__TON_OFF+sizeof(short long)*tmp_11.mem_cantMemorias)
+tmp_11.p2eepromAddr=EEADDR__16_00__TON_OFF;
+
+
+}
+else
+{
+if( (tmp_11.p2eepromAddr-EEADDR__16_00__TON_OFF)%
+(2*(char)sizeof(short long)))
+tmp_11.p2eepromAddr -= sizeof(short long);
+else
+tmp_11.p2eepromAddr += 2*sizeof(short long);
+
+if( tmp_11.p2eepromAddr==
+EEADDR__16_00__TON_OFF+sizeof(short long)*tmp_11.mem_cantMemorias)
+tmp_11.p2eepromAddr = EEADDR__16_00__TON_OFF+sizeof(short long);
+
+
+}
+
+if(t1DelayConstant[T1_TIME])
+{
+{ t1Mem[T1_TIME].flag=0; t1Mem[T1_TIME].prescaler=t1DelayConstant[T1_TIME]; t1Mem[T1_TIME].pause=0; };
+
+if(!tmp_11.flag_outForce)
+
+{
+RB1 = tmp_11.p2eepromAddr%2;
+
+
+}
+}
+else
+{
+(t1Mem[T1_TIME].flag=1);
+}
+}
+
+
+
+
+void a_inputActionFn(void)
+{
+RA3 = 1;
+switch(tmp_11.mem_input)
+{
+case M0_INPUT_NADA: break;
+case M0_INPUT_PAUSE_ON:
+case M0_INPUT_PAUSE_OFF:
+(t1Mem[T1_TIME].pause=1);
+tmp_11.flag_showTimeBlink = 1;
+case M0_INPUT_DISABLE:
+case M0_INPUT_FUERZA:
+RB1 = tmp_11.mem_input%2;
+
+# 151
+tmp_11.flag_outForce = 1;
+tmp_11.flag_outForceVal = RB1;
+}
+}
+
+
+
+
+void a_inputActionFp(void)
+{
+RA3 = 0;
+switch(tmp_11.mem_input)
+{
+case M0_INPUT_NADA: break;
+case M0_INPUT_PAUSE_ON:
+case M0_INPUT_PAUSE_OFF:
+(t1Mem[T1_TIME].pause=0);
+tmp_11.flag_showTimeBlink = 0;
+case M0_INPUT_DISABLE:
+case M0_INPUT_FUERZA:
+RB1 = tmp_11.p2eepromAddr%2;
+
+
+tmp_11.flag_outForce = 0;
+
+break;
+}
+}
+
+
+
+
+void a_input2ActionFn(void)
+{
+RB3 = 1;
+
+{ t1Mem[T1_TIME].prescaler=0; };
+RB1 = 0;
+RA1 = 0;
+tmp_11.p2eepromAddr = EEADDR__16_00__TON_OFF;
+
+
+if(!tmp_11.mem_first) tmp_11.p2eepromAddr += sizeof(short long);
+
+
+
+
+tmp_11.flag_showHyphens=1;
+
+
+disp.d0_dp=0;
+disp.d1_dp=0;
+disp.d2_dp=0;
+disp.d3_dp=0;
+
+tmp_11.str[0]='R';
+tmp_11.str[1]='S';
+tmp_11.str[2]='t';
+tmp_11.str[3]=' ';
+disp.str=tmp_11.str;
+}
+
+# 223
+void a_input2ActionFp(void)
+{
+RB3 = 0;
+tmp_11.flag_showHyphens = 0;
+
+(t1Mem[T1_TIME].flag=1);
+
+
+}
+
+
+
+
+void a_showTimerIdOn(void)
+{
+tmp_11.flag_showTimerId=1;
+
+char id;
+
+if(tmp_11.p2eepromAddr==EEADDR__16_00__TON_OFF)
+id=tmp_11.mem_cantMemorias-1;
+
+else
+id=(tmp_11.p2eepromAddr-EEADDR__16_00__TON_OFF)/
+(char)sizeof(short long)-1;
+
+
+switch(id%2)
+{
+case 0:
+d7sm_buffer[0]='t';
+d7sm_buffer[1]='o';
+d7sm_buffer[2]='n';
+d7sm_buffer[3]='_';
+
+
+d7sm_buffer[6]=0;
+
+{ char i,n=id/2,*s=&d7sm_buffer[4]; s+=2-1; for(i=0;i<2;i++) { *(s--)='0'+(n%10); n/=10; } };
+break;
+case 1:
+d7sm_buffer[0]='t';
+d7sm_buffer[1]='o';
+d7sm_buffer[2]='f';
+d7sm_buffer[3]='f';
+d7sm_buffer[4]='_';
+
+
+d7sm_buffer[7]=0;
+
+{ char i,n=(id-1)/2,*s=&d7sm_buffer[5]; s+=2-1; for(i=0;i<2;i++) { *(s--)='0'+(n%10); n/=10; } };
+break;
+}
+
+
+d7sm_puts_scroll(&d7sm_buffer);
+}
+
+
+
+
+void a_showHyphensOn(void)
+{
+tmp_11.flag_showHyphens=1;
+
+# 295
+disp.d0_dp=0;
+disp.d1_dp=0;
+disp.d2_dp=0;
+disp.d3_dp=0;
+
+tmp_11.str[0]='-';
+tmp_11.str[1]='-';
+tmp_11.str[2]='-';
+tmp_11.str[3]='-';
+disp.str=tmp_11.str;
+
+}
+
+
+
+
+void a_showHyphensOff(void)
+{
+tmp_11.flag_showHyphens=0;
+
+}
+
+
+
+
+void a_showTimerIdOff(void)
+{
+tmp_11.flag_showTimerId=0;
+{ t0Mem[T0_D7SM_SCROLL].prescaler=0; t0Mem[T0_D7SM_SCROLL].pause=1; t0Mem[T0_D7SM_SCROLL].loop=0; };
+}
+
+# 330
+void a_showTime(void)
+{
+
+# 347
+if(tmp_11.flag_outForce)
+{
+if(tmp_11.p2eepromAddr%2 && !tmp_11.flag_outForceVal)
+RA1 = bitTitila;
+else RA1 = tmp_11.flag_outForceVal;
+}
+else RA1 = tmp_11.p2eepromAddr%2;
+
+
+if(!tmp_11.flag_showTimerId && !tmp_11.flag_showHyphens)
+{
+char hh,mm,ss;
+
+hh = (1+t1Mem[T1_TIME].prescaler/4)/3600;
+mm = ((1+t1Mem[T1_TIME].prescaler/4)%3600)/60;
+ss = (1+t1Mem[T1_TIME].prescaler/4)%60;
+
+if(hh>=10)
+{
+ucharToStr(hh, &tmp_11.str[0], 2);
+ucharToStr(mm, &tmp_11.str[2], 2);
+disp.d0_dp = 0;
+disp.d1_dp = 0;
+disp.d2_dp = 1;
+disp.d3_dp = 0;
+}
+else if(hh<10 && hh>0)
+{
+ucharToStr(hh, &tmp_11.str[0], 1);
+ucharToStr(mm, &tmp_11.str[1], 2);
+ucharToStr(ss/10, &tmp_11.str[3], 1);
+disp.d0_dp = 0;
+disp.d1_dp = 1;
+disp.d2_dp = 0;
+disp.d3_dp = 1;
+}
+else
+{
+ucharToStr(mm, &tmp_11.str[0], 2);
+ucharToStr(ss, &tmp_11.str[2], 2);
+disp.d0_dp = 0;
+disp.d1_dp = 0;
+disp.d2_dp = 1;
+disp.d3_dp = 0;
+}
+
+if(tmp_11.flag_showTimeBlink)
+{
+disp.d0_titila = 1;
+disp.d1_titila = 1;
+disp.d2_titila = 1;
+disp.d3_titila = 1;
+}
+else
+{
+disp.d0_titila = 0;
+disp.d1_titila = 0;
+disp.d2_titila = 0;
+disp.d3_titila = 0;
+}
+
+disp.strOffs = 4;
+disp.strLen = 4;
+disp.str = tmp_11.str;
+}
+}
+
+# 419
+void a_m0_return(void)
+{
+{ t0Mem[T0_D7SM_SCROLL].prescaler=0; t0Mem[T0_D7SM_SCROLL].pause=1; t0Mem[T0_D7SM_SCROLL].loop=0; };
+(t1Mem[T1_TIME].flag=1);
+
+tmp_11.flag_inputSettingLedBlink = 0;
+}
+
+# 433
+void a_m0_first(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+
+{ t1Mem[T1_TIME].prescaler=0; };
+RB1 = 0;
+RA1 = 0;
+
+
+tmp_11.mainMenuState = TEXT__M0__FIRST;
+
+d7sm_puts_scroll((char *)menu_text_main[tmp_11.mainMenuState]);
+}
+
+# 451
+void a_m0_first_set(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.flag_inputSettingLedBlink = 1;
+
+if(estadoFsm==S__M0__FIRST)
+tmp_11.menuCharAuxiliar = tmp_11.mem_first;
+
+if(tmp_11.menuCharAuxiliar) d7sm_puts_scroll((char *)"ON");
+else d7sm_puts_scroll((char *)"OFF");
+
+
+
+
+}
+
+
+
+
+void a_m0_first_inc(void)
+{
+tmp_11.menuCharAuxiliar = !tmp_11.menuCharAuxiliar;
+a_m0_first_set();
+}
+
+
+
+
+void a_m0_first_save(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.flag_inputSettingLedBlink = 0;
+
+tmp_11.mem_first = tmp_11.menuCharAuxiliar;
+{ eeprom_write(EEADDR__04_00__FIRST,tmp_11.mem_first); };
+a_m0_first();
+}
+
+# 494
+void a_m0_input(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+
+tmp_11.mainMenuState = TEXT__M0__INPUT;
+d7sm_puts_scroll((char *)menu_text_main[tmp_11.mainMenuState]);
+}
+
+# 506
+void a_m0_input_set(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.flag_inputSettingLedBlink = 1;
+
+if(estadoFsm==S__M0__INPUT)
+tmp_11.menuCharAuxiliar = tmp_11.mem_input;
+
+switch(tmp_11.menuCharAuxiliar)
+{
+case M0_INPUT_NADA: d7sm_puts_scroll((char *)"NAdA"); break;
+case M0_INPUT_PAUSE_ON: d7sm_puts_scroll((char *)"PAUSE ON"); break;
+case M0_INPUT_PAUSE_OFF: d7sm_puts_scroll((char *)"PAUSE OFF"); break;
+case M0_INPUT_DISABLE: d7sm_puts_scroll((char *)"dESHAbILItA"); break;
+case M0_INPUT_FUERZA: d7sm_puts_scroll((char *)"FUERZA"); break;
+}
+}
+
+
+
+
+void a_m0_input_inc(void)
+{
+if(tmp_11.menuCharAuxiliar==(M0_INPUT_CANT-1))
+tmp_11.menuCharAuxiliar = 0;
+else
+tmp_11.menuCharAuxiliar++;
+
+a_m0_input_set();
+}
+
+
+
+
+void a_m0_input_save(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.flag_inputSettingLedBlink = 0;
+
+tmp_11.mem_input = tmp_11.menuCharAuxiliar;
+{ eeprom_write(EEADDR__00_00__INPUT,tmp_11.mem_input); };
+a_m0_input();
+}
+
+# 555
+void a_m0_nMem(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+
+{ t1Mem[T1_TIME].prescaler=0; };
+RB1 = 0;
+RA1 = 0;
+tmp_11.p2eepromAddr = EEADDR__16_00__TON_OFF;
+
+
+if(!tmp_11.mem_first) tmp_11.p2eepromAddr += sizeof(short long);
+
+
+tmp_11.mainMenuState = TEXT__M0__NMEM;
+
+d7sm_puts_scroll((char *)menu_text_main[tmp_11.mainMenuState]);
+}
+
+# 585
+void a_m0_nMem_set(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.flag_inputSettingLedBlink = 1;
+
+if(estadoFsm==S__M0__NMEM)
+tmp_11.menuCharAuxiliar = tmp_11.mem_cantMemorias/2;
+
+{ { t0Mem[T0_D7SM_SCROLL].prescaler=0; t0Mem[T0_D7SM_SCROLL].pause=1; t0Mem[T0_D7SM_SCROLL].loop=0; }; disp.strOffs=4; disp.strLen=4; char *str=&d7sm_buffer[0]; { char i,n=tmp_11.menuCharAuxiliar,*s=str; s+=4-1; for(i=0;i<4;i++) { *(s--)='0'+(n%10); n/=10; } }; disp.str=d7sm_buffer; disp.d0_titila=1; disp.d1_titila=1; disp.d2_titila=1; disp.d3_titila=1; };
+
+
+}
+
+# 602
+void a_m0_nMem_inc(void)
+{
+if(tmp_11.menuCharAuxiliar<40) tmp_11.menuCharAuxiliar++;
+a_m0_nMem_set();
+}
+
+# 612
+void a_m0_nMem_dec(void)
+{
+if(tmp_11.menuCharAuxiliar>1) tmp_11.menuCharAuxiliar--;
+a_m0_nMem_set();
+}
+
+# 622
+void a_m0_nMem_save(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.flag_inputSettingLedBlink = 0;
+
+tmp_11.mem_cantMemorias=tmp_11.menuCharAuxiliar*2;
+{ eeprom_write(EEADDR__02_00__NMEM,tmp_11.mem_cantMemorias); };
+a_m0_nMem();
+}
+
+# 641
+void a_m0_tOnOff_entrance(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.mainMenuState=0;
+a_m0_tOnOff_showString();
+}
+
+# 652
+void a_m0_tOnOff_showString(void)
+{
+switch(tmp_11.mainMenuState%2)
+{
+case 0:
+d7sm_buffer[0]='t';
+d7sm_buffer[1]='o';
+d7sm_buffer[2]='n';
+d7sm_buffer[3]='_';
+
+
+d7sm_buffer[6]=0;
+
+{ char i,n=tmp_11.mainMenuState/2,*s=&d7sm_buffer[4]; s+=2-1; for(i=0;i<2;i++) { *(s--)='0'+(n%10); n/=10; } };
+
+break;
+case 1:
+d7sm_buffer[0]='t';
+d7sm_buffer[1]='o';
+d7sm_buffer[2]='f';
+d7sm_buffer[3]='f';
+d7sm_buffer[4]='_';
+
+
+d7sm_buffer[7]=0;
+
+{ char i,n=(tmp_11.mainMenuState-1)/2,*s=&d7sm_buffer[5]; s+=2-1; for(i=0;i<2;i++) { *(s--)='0'+(n%10); n/=10; } };
+
+break;
+}
+
+
+d7sm_puts_scroll((char *)&d7sm_buffer);
+}
+
+
+
+
+void a_m0_tOnOff_showString_next(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+
+tmp_11.mainMenuState++;
+
+if(tmp_11.mainMenuState==tmp_11.mem_cantMemorias) tmp_11.mainMenuState=0;
+
+a_m0_tOnOff_showString();
+}
+
+# 711
+void a_m0_tOnOff_set(void)
+{
+char titila;
+unsigned char num;
+const char *p2s;
+
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.flag_inputSettingLedBlink = 1;
+
+switch(estadoFsm)
+
+{
+case S__M0__TON_OFF:
+{ tmp_11.menuShortLongAuxiliar=0x0000L; tmp_11.menuShortLongAuxiliar|=(long)eeprom_read((EEADDR__16_00__TON_OFF + tmp_11.mainMenuState*sizeof(short long))+0)<<(8*2); tmp_11.menuShortLongAuxiliar|=(long)eeprom_read((EEADDR__16_00__TON_OFF + tmp_11.mainMenuState*sizeof(short long))+1)<<(8*1); tmp_11.menuShortLongAuxiliar|=(long)eeprom_read((EEADDR__16_00__TON_OFF + tmp_11.mainMenuState*sizeof(short long))+2)<<(8*0); };
+
+# 731
+tmp_11.menuShortLongAuxiliar/=4;
+case S__M0__TON_OFF__SET_HH_1:
+case S__M0__TON_OFF__SET_MM_1:
+case S__M0__TON_OFF__SET_SS_1:
+titila=0;
+break;
+case S__M0__TON_OFF__SET_HH_0:
+case S__M0__TON_OFF__SET_MM_0:
+case S__M0__TON_OFF__SET_SS_0:
+titila=1;
+break;
+}
+
+switch(estadoFsm)
+{
+case S__M0__TON_OFF:
+case S__M0__TON_OFF__SET_SS_1:
+case S__M0__TON_OFF__SET_HH_0:
+num=tmp_11.menuShortLongAuxiliar/3600;
+p2s=" h";
+break;
+case S__M0__TON_OFF__SET_HH_1:
+case S__M0__TON_OFF__SET_MM_0:
+
+num=(tmp_11.menuShortLongAuxiliar%3600)/60;
+p2s=" m";
+break;
+case S__M0__TON_OFF__SET_MM_1:
+case S__M0__TON_OFF__SET_SS_0:
+num=tmp_11.menuShortLongAuxiliar%60;
+p2s=" s";
+break;
+}
+
+d7sm_set_88xx(titila,num,p2s);
+}
+
+
+
+
+void a_m0_tOnOff_inc(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+
+char hh,mm,ss;
+hh=(tmp_11.menuShortLongAuxiliar)/3600;
+mm=((tmp_11.menuShortLongAuxiliar)%3600)/60;
+ss=(tmp_11.menuShortLongAuxiliar)%60;
+
+switch(estadoFsm)
+{
+case S__M0__TON_OFF__SET_HH_0:
+if(hh%10==9) hh-=9;
+else hh++;
+break;
+case S__M0__TON_OFF__SET_HH_1:
+if(hh/10==9) hh-=90;
+else hh+=10;
+
+break;
+case S__M0__TON_OFF__SET_MM_0:
+if(mm%10==9) mm-=9;
+else mm++;
+break;
+case S__M0__TON_OFF__SET_MM_1:
+if(mm/10==5) mm-=50;
+else mm+=10;
+break;
+case S__M0__TON_OFF__SET_SS_0:
+if(ss%10==9) ss-=9;
+else ss++;
+break;
+case S__M0__TON_OFF__SET_SS_1:
+if(ss/10==5) ss-=50;
+else ss+=10;
+break;
+}
+
+tmp_11.menuShortLongAuxiliar = (short long)hh*3600+
+(short long)mm*60+(short long)ss;
+
+# 816
+char titila;
+
+long num;
+const char *p2s;
+
+switch(estadoFsm)
+{
+case S__M0__TON_OFF__SET_HH_1:
+case S__M0__TON_OFF__SET_MM_1:
+case S__M0__TON_OFF__SET_SS_1:
+titila=1;
+break;
+case S__M0__TON_OFF__SET_HH_0:
+case S__M0__TON_OFF__SET_MM_0:
+case S__M0__TON_OFF__SET_SS_0:
+titila=0;
+break;
+}
+
+switch(estadoFsm)
+{
+case S__M0__TON_OFF__SET_HH_0:
+case S__M0__TON_OFF__SET_HH_1:
+num = tmp_11.menuShortLongAuxiliar/(long)3600;
+p2s = " h";
+break;
+case S__M0__TON_OFF__SET_MM_0:
+case S__M0__TON_OFF__SET_MM_1:
+
+num=(tmp_11.menuShortLongAuxiliar%(long)3600)/(long)60;
+p2s = " m";
+break;
+case S__M0__TON_OFF__SET_SS_0:
+case S__M0__TON_OFF__SET_SS_1:
+num=tmp_11.menuShortLongAuxiliar%(long)60;
+p2s = " s";
+break;
+}
+
+
+d7sm_set_88xx(titila,(unsigned char)num,p2s);
+}
+
+
+
+
+void a_m0_tOnOff_save(void)
+{
+{ t0Mem[T0_MENU_RETURN].flag=0; t0Mem[T0_MENU_RETURN].prescaler=t0DelayConstant[T0_MENU_RETURN]; t0Mem[T0_MENU_RETURN].pause=0; };
+tmp_11.flag_inputSettingLedBlink = 0;
+
+{ eeprom_write((EEADDR__16_00__TON_OFF+tmp_11.mainMenuState*sizeof(short long))+0,((unsigned char)((tmp_11.menuShortLongAuxiliar*4>>(8*2))&0xFF))); eeprom_write((EEADDR__16_00__TON_OFF+tmp_11.mainMenuState*sizeof(short long))+1,((unsigned char)((tmp_11.menuShortLongAuxiliar*4>>(8*1))&0xFF))); eeprom_write((EEADDR__16_00__TON_OFF+tmp_11.mainMenuState*sizeof(short long))+2,((unsigned char)((tmp_11.menuShortLongAuxiliar*4>>(8*0))&0xFF))); };
+
+# 870
+a_m0_tOnOff_showString();
+}
+
+# 31 "F:\fgr\16gb\libSwPic\libSwPic\fsm\20220826 1844\fsm.c"
+char estadoFsm;
+
+# 38
+void fsmParser(void)
+{
+char event,ix2Trans;
+
+ix2Trans=0;
+event=fsmGetEvent();
+
+while(
+((t_fsmState*)(fsmStateTable[estadoFsm]))[ix2Trans].event!=
+EV_TABLE_END &&
+((t_fsmState*)(fsmStateTable[estadoFsm]))[ix2Trans].event!=event
+)
+ix2Trans++;
+
+((t_fsmState*)(fsmStateTable[estadoFsm]))[ix2Trans].action();
+
+estadoFsm=((t_fsmState*)(fsmStateTable[estadoFsm]))[ix2Trans].nextState;
+}
+

@@ -1,0 +1,85 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[c E3 0 1 2 .. ]
+[n E3 e_t1 T1_TIME T1_INTERMITENCIA_OUTPUT T1_CANT  ]
+"13 F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t1_delays.h
+[v _t1DelayConstant `m . `E3 2 e ]
+[s S1 `m 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1 . prescaler loop flag pause ]
+"17 F:\fgr\16gb\libSwPic\libSwPic\timer1\20221129 1236\t1.c
+[v _t1Mem `S1 . `E3 2 e ]
+[; ;t1_setupUser.h: 16: typedef short long type_t1Size;
+[; ;t1_setupUser.h: 18: typedef type_t1Size type_t1DelayConstant;
+[; ;t1_aliases.h: 12: enum e_t1
+[; ;t1_aliases.h: 13: {
+[; ;t1_aliases.h: 14: T1_TIME,
+[; ;t1_aliases.h: 15: T1_INTERMITENCIA_OUTPUT,
+[; ;t1_aliases.h: 16: T1_CANT
+[; ;t1_aliases.h: 17: };
+[; ;t1.h: 24: typedef struct
+[; ;t1.h: 25: {
+[; ;t1.h: 26: type_t1Size prescaler;
+[; ;t1.h: 27: unsigned char loop:1;
+[; ;t1.h: 28: unsigned char flag:1;
+[; ;t1.h: 29: unsigned char pause:1;
+[; ;t1.h: 30: }t_t1;
+[; ;t1.h: 39: extern t_t1 t1Mem[T1_CANT];
+[; ;t1.h: 40: extern type_t1DelayConstant t1DelayConstant[T1_CANT];
+[; ;t1.h: 91: void t1Driver(char i);
+"13 F:\fgr\16gb\0000 interior\deTmp11\sw\cic\0000 cic\t1_delays.h
+[i _t1DelayConstant
+:U ..
+"15
+-> -> 0 `i `m
+"17
+-> -> 0 `i `m
+..
+]
+[; ;t1_delays.h: 13: type_t1DelayConstant t1DelayConstant[T1_CANT]=
+[; ;t1_delays.h: 14: {
+[; ;t1_delays.h: 15: 0,
+[; ;t1_delays.h: 16: 0
+[; ;t1_delays.h: 17: };
+[; ;t1.c: 17: t_t1 t1Mem[T1_CANT];
+"25 F:\fgr\16gb\libSwPic\libSwPic\timer1\20221129 1236\t1.c
+[v _t1Driver `(v 1 ef1`uc ]
+{
+[; ;t1.c: 24: void t1Driver(char i)
+[; ;t1.c: 25: {
+[e :U _t1Driver ]
+[v _i `uc 1 r1 ]
+[f ]
+[; ;t1.c: 26: if(!t1Mem[i].pause && t1Mem[i].prescaler>0)
+"26
+[e $ ! && ! != -> . *U + &U _t1Mem * -> _i `ux -> -> # *U &U _t1Mem `ui `ux 3 `i -> -> -> 0 `i `uc `i > . *U + &U _t1Mem * -> _i `ux -> -> # *U &U _t1Mem `ui `ux 0 -> -> 0 `i `m 3  ]
+[; ;t1.c: 27: {
+"27
+{
+[; ;t1.c: 28: t1Mem[i].prescaler--;
+"28
+[e -- . *U + &U _t1Mem * -> _i `ux -> -> # *U &U _t1Mem `ui `ux 0 -> -> 1 `i `m ]
+[; ;t1.c: 29: if(t1Mem[i].prescaler==0)
+"29
+[e $ ! == . *U + &U _t1Mem * -> _i `ux -> -> # *U &U _t1Mem `ui `ux 0 -> -> 0 `i `m 4  ]
+[; ;t1.c: 30: {
+"30
+{
+[; ;t1.c: 31: t1Mem[i].flag=1;
+"31
+[e = . *U + &U _t1Mem * -> _i `ux -> -> # *U &U _t1Mem `ui `ux 2 -> -> 1 `i `uc ]
+[; ;t1.c: 32: if(t1Mem[i].loop) t1Mem[i].prescaler=t1DelayConstant[i];
+"32
+[e $ ! != -> . *U + &U _t1Mem * -> _i `ux -> -> # *U &U _t1Mem `ui `ux 1 `i -> -> -> 0 `i `uc `i 5  ]
+[e = . *U + &U _t1Mem * -> _i `ux -> -> # *U &U _t1Mem `ui `ux 0 *U + &U _t1DelayConstant * -> _i `ux -> -> # *U &U _t1DelayConstant `ui `ux ]
+[e :U 5 ]
+"33
+}
+[e :U 4 ]
+"34
+}
+[e :U 3 ]
+[; ;t1.c: 33: }
+[; ;t1.c: 34: }
+[; ;t1.c: 35: }
+"35
+[e :UE 2 ]
+}
