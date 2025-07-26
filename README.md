@@ -7,11 +7,11 @@ Contiene el firmware para ser utilizado en el hw aqui especificado.
 # Schematics
 ![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/disp4x7seg/otherFiles/sch.jpg)
 
-![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/otherFiles/main40v/sch.jpg)
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/main40v/otherFiles/sch.jpg)
 
-![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/otherFiles/miniTop/sch.jpg)
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/miniTop/otherFiles/sch.jpg)
 
-![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/otherFiles/ucExpandido/sch.jpg)
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/ucExpandido/otherFiles/sch.jpg)
 
 
 # PCBs
