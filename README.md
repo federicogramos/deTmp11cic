@@ -19,20 +19,21 @@ Contiene el firmware para ser utilizado en el hw aqui especificado.
 
 # PCBs
 
-## disp4x7seg
-![alt text](https://raw.githubusercontent.com/federicogramos/led7SegDriverWithPS/main/otherFiles/pcb.jpg)
-
-## main40v
-![alt text](https://raw.githubusercontent.com/federicogramos/led7SegDriverWithPS/main/otherFiles/pcb.jpg)
-
-## miniTop
-![alt text](https://raw.githubusercontent.com/federicogramos/led7SegDriverWithPS/main/otherFiles/pcb.jpg)
-
 ## ucExpandido
-![alt text](https://raw.githubusercontent.com/federicogramos/led7SegDriverWithPS/main/otherFiles/pcb.jpg)
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/ucExpandido/otherFiles/bottomOverlay.jpg)
+
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/ucExpandido/otherFiles/topOverlay.jpg)
 
 # Renderización cad
-![alt text](https://raw.githubusercontent.com/federicogramos/led7SegDriverWithPS/main/otherFiles/cad_0.jpg)
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/disp4x7seg/otherFiles/cad.jpg)
+
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/main40v/otherFiles/cad.jpg)
+
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/miniTop/otherFiles/cad.jpg)
+
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/ucExpandido/otherFiles/cad_00.jpg)
+
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/ucExpandido/otherFiles/cad_01.jpg)
 
 # Todo ensamblado
 
