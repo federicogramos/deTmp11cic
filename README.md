@@ -15,6 +15,6 @@ Contiene el firmware para ser utilizado en el hw aqui especificado.
 
 # Todo ensamblado
 
-![alt text](https://raw.githubusercontent.com/federicogramos/main/deTmp11cic/otherFiles/deTmp11cic_00.jpg)
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/otherFiles/deTmp11cic_00.jpg)
 
-![alt text](https://raw.githubusercontent.com/federicogramos/main/deTmp11cic/otherFiles/deTmp11cic_01.jpg)
+![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/otherFiles/deTmp11cic_01.jpg)
