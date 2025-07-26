@@ -1,8 +1,8 @@
 # About
 Dispositivo de control periódico.
--- Firmware
--- Pcb diseño altium de varias placas que componen distintas partes.
--- Fuente de alimentacion switching step down diseñada aparte en otro proyecto aun no incluido.
+- Firmware
+- Pcb diseño altium de varias placas que componen distintas partes.
+- Fuente de alimentacion switching step down diseñada aparte en otro proyecto aun no incluido.
 
 # ./sw
 Contiene el firmware para ser utilizado en el hw aqui especificado.
