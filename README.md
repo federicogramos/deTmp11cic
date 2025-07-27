@@ -20,6 +20,7 @@ Contiene el firmware para ser utilizado en el hw aqui especificado.
 # PCBs
 
 ### ucExpandido
+
 Bottom overlay
 ![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/ucExpandido/otherFiles/bottomOverlay.jpg)
 
