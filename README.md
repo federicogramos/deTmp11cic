@@ -38,7 +38,7 @@ Top overlay
 
 ![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/pcb/ucExpandido/otherFiles/cad_01.jpg)
 
-# Todo ensamblado
+# Modulos ensamblados
 
 ![alt text](https://raw.githubusercontent.com/federicogramos/deTmp11cic/main/otherFiles/deTmp11cic_00.jpg)
 
