@@ -1,3 +1,5 @@
 # Ignore altium automatic history files
 **/History
 **/disp4x7seg/Project Logs for */*
+
+**/fab
