@@ -1,10 +1,3 @@
 # Ignore altium automatic history files
-pcb/disp4x7seg/History/*
-pcb/main40v/History/*
-pcb/miniTop/History/*
-pcb/ucExpandido/History/*
-
-pcb/disp4x7seg/Project Logs for de1d/*
-pcb/main40v/Project Logs for de1d/*
-pcb/miniTop/Project Logs for de1d/*
-pcb/ucExpandido/Project Logs for de1d/*
+**/History
+**/disp4x7seg/Project Logs for */*
